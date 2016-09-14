@@ -1,7 +1,6 @@
 package com.viewnextfor.ejb.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,23 +19,16 @@ public class SaludoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter writer = response.getWriter();
-		writer.append("<html>")
-			.append("<head>")
-			.append("<title>Saludo</title>")
-			.append("</head>")
-			.append("<body>")
-			.append("<h2>Saludos desde nuestra aplicación</h2>")
-			.append("</body>")
-			.append("</html>").flush();
+		request.getRequestDispatcher("/WEB-INF/paginas/datospersona.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String nombre = request.getParameter("nombre");
+		request.setAttribute("saludo", "Hola " + nombre + ", ¿Qué tal estas?");
+		request.getRequestDispatcher("/WEB-INF/paginas/saludo.jsp").forward(request, response);
 	}
 
 }
