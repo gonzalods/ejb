@@ -2,12 +2,19 @@ package com.viewnextfor.servicio;
 
 import java.time.LocalTime;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+
 import com.viewnextfor.bean.SaludoBean;
 
+@ApplicationScoped
 public class SaludoNewApi implements ServicioSaludo {
 
+	@Inject
+	private SaludoBean saludo;
+	
 	@Override
-	public void crearSaludo(SaludoBean saludo) {
+	public void crearSaludo() {
 		LocalTime ahora = LocalTime.now();
 		StringBuilder sb = new StringBuilder();
 		sb.append(conversionTimeString(ahora))

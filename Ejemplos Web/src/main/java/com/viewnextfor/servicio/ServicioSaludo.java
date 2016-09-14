@@ -4,5 +4,5 @@ import com.viewnextfor.bean.SaludoBean;
 
 public interface ServicioSaludo {
 
-	public void crearSaludo(SaludoBean saludoBean);
+	public void crearSaludo();
 }

@@ -36,7 +36,7 @@ public class SaludoServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nombre = request.getParameter("nombre");
 		saludo.setNombre(nombre);
-		servicio.crearSaludo(saludo);
+		servicio.crearSaludo();
 		request.getRequestDispatcher("/WEB-INF/paginas/saludo.jsp").forward(request, response);
 	}
 
