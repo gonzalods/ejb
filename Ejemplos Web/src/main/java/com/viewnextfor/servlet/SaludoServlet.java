@@ -1,4 +1,4 @@
-package com.viewnextfor.ejb.servlet;
+package com.viewnextfor.servlet;
 
 import java.io.IOException;
 
@@ -7,6 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.viewnextfor.bean.SaludoBean;
+import com.viewnextfor.servicio.SaludoNewApi;
+import com.viewnextfor.servicio.ServicioSaludo;
 
 /**
  * Servlet implementation class SaludoServlet
@@ -27,7 +31,11 @@ public class SaludoServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nombre = request.getParameter("nombre");
-		request.setAttribute("saludo", "Hola " + nombre + ", ¿Qué tal estas?");
+		SaludoBean saludo = new SaludoBean();
+		saludo.setNombre(nombre);
+		ServicioSaludo servicio = new SaludoNewApi();
+		servicio.crearSaludo(saludo);
+		request.setAttribute("saludo", saludo);
 		request.getRequestDispatcher("/WEB-INF/paginas/saludo.jsp").forward(request, response);
 	}
 
