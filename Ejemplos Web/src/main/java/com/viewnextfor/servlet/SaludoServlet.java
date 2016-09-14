@@ -37,6 +37,7 @@ public class SaludoServlet extends HttpServlet {
 		String nombre = request.getParameter("nombre");
 		saludo.setNombre(nombre);
 		servicio.crearSaludo();
+		request.setAttribute("saludo", saludo);
 		request.getRequestDispatcher("/WEB-INF/paginas/saludo.jsp").forward(request, response);
 	}
 
