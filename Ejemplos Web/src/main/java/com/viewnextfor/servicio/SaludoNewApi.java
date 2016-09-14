@@ -10,9 +10,15 @@ import com.viewnextfor.bean.SaludoBean;
 @ApplicationScoped
 public class SaludoNewApi implements ServicioSaludo {
 
+	private String textoSaludo;
+	
 	@Inject
 	private SaludoBean saludo;
 	
+	public SaludoNewApi(String texto, SaludoBean saludo){
+		textoSaludo = texto;
+		this.saludo = saludo; 
+	}
 	@Override
 	public void crearSaludo() {
 		LocalTime ahora = LocalTime.now();
@@ -20,7 +26,8 @@ public class SaludoNewApi implements ServicioSaludo {
 		sb.append(conversionTimeString(ahora))
 			.append(" ")
 			.append(saludo.getNombre())
-			.append(", Bienvenido a nuestro programa");
+			.append(", ")
+			.append(textoSaludo);
 		saludo.setSaludo(sb.toString());
 
 	}
