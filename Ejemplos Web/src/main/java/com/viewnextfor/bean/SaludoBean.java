@@ -1,5 +1,10 @@
 package com.viewnextfor.bean;
 
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+
+@Named("saludo")
+@RequestScoped
 public class SaludoBean {
 
 	private String nombre;
