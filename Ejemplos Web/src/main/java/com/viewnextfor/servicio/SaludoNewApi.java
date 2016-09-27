@@ -2,17 +2,12 @@ package com.viewnextfor.servicio;
 
 import java.time.LocalTime;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-
 import com.viewnextfor.bean.SaludoBean;
 
-@ApplicationScoped
 public class SaludoNewApi implements ServicioSaludo {
 
 	private String textoSaludo;
 	
-	@Inject
 	private SaludoBean saludo;
 	
 	public SaludoNewApi(String texto, SaludoBean saludo){

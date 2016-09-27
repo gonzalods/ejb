@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="Libreria Servlet">
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
+        <dependent-module archiveName="Libreria Servicios.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/Libreria Servicios/Libreria Servicios">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="Libreria JDBC.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/Libreria JDBC/Libreria JDBC">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="Libreria Dominio.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/Libreria Dominio/Libreria Dominio">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="java-output-path" value="/Libreria Servlet/target/classes"/>
+        <property name="context-root" value="libreria"/>
+    </wb-module>
+</project-modules>
